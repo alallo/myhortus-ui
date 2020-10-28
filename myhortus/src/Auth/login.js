@@ -1,6 +1,6 @@
 //import { userService } from '../_services';
 import React from 'react';
-import userService from '../Services/userService';
+import {userService} from '../Services/userService';
 
 class Login extends React.Component {
     constructor(props) {
@@ -36,14 +36,16 @@ class Login extends React.Component {
         }
 
         this.setState({ loading: true });
-        userService.login(username, password)
-            .then(
-                user => {
-                    const { from } = this.props.location.state || { from: { pathname: "/" } };
-                    this.props.history.push(from);
-                },
-                error => this.setState({ error, loading: false })
-            );
+        var user = userService.login(username, password);
+        const { from } = this.props.location.state || { from: { pathname: "/" } };
+        this.props.history.push(from);
+            // .then(
+            //     user => {
+            //         const { from } = this.props.location.state || { from: { pathname: "/" } };
+            //         this.props.history.push(from);
+            //     },
+            //     error => this.setState({ error, loading: false })
+            // );
     }
 
     render() {
