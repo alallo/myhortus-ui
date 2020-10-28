@@ -38,7 +38,7 @@
 }
 
 .bgimg {
-  background-image: url('loginBackground.jpg');
+  background-image: url('../loginBackground.jpg');
    /* Full height */
    height: 100%;
 
