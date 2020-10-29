@@ -3,8 +3,8 @@ import React from 'react';
 import {userService} from '../Services/userService';
 
 class Login extends React.Component {
-    constructor(props) {
-      super(props);
+    constructor() {
+      super();
         //userService.logout();
 
         this.state = {
@@ -37,6 +37,7 @@ class Login extends React.Component {
 
         this.setState({ loading: true });
         var user = userService.login(username, password);
+        this.setState({authenticated: true});
         const { from } = this.props.location.state || { from: { pathname: "/" } };
         this.props.history.push(from);
             // .then(
